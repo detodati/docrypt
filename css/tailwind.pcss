@@ -1,0 +1,429 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  --color: #747474;
+  --color-background: #272727;
+  --color-menu: #222222;
+  --color-menu-hover: #ff652f;
+
+  --color-yellow: #b9a70f;
+  --color-green: #14a76c;
+  --color-orange: #ff652f;
+  --color-gray: #747474;
+  --color-blue: #0875b5;
+  --color-purple: #b949fb;
+  --color-red: #e55451;
+  --color-coral: lightcoral;
+}
+
+@layer base {
+  * {
+    @apply m-0 p-0 border-0 align-baseline;
+  }
+
+  html,
+  body {
+    @apply font-sans antialiased flex flex-col relative m-0 box-border p-0;
+    @apply bg-[color:var(--color-background)] text-[color:var(--color)];
+    scrollbar-width: thin;
+    scrollbar-color: var(--color) var(--color-menu);
+  }
+
+  body::-webkit-scrollbar {
+    width: 11px;
+  }
+  body::-webkit-scrollbar-track {
+    background: var(--color-menu);
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--color);
+    border-radius: 6px;
+    border: 3px solid var(--color-menu);
+  }
+
+  h1 {
+    @apply text-3xl font-semibold;
+  }
+
+  p {
+    @apply m-2;
+  }
+
+  a,
+  a:visited {
+    @apply p-1 rounded-lg no-underline text-[color:var(--color-menu-hover)];
+  }
+
+  a:hover {
+    @apply no-underline bg-[color:var(--color-menu-hover)] text-[color:var(--color-menu)] cursor-pointer;
+  }
+
+  main {
+    @apply w-full max-w-4xl mx-auto p-4;
+  }
+}
+
+@layer components {
+  .header-page {
+    @apply flex flex-row justify-between items-center p-2 sticky top-0 left-0 right-0 z-50;
+    transition: all 0.5s ease-in-out;
+    background-color: var(--color-menu);
+
+    svg {
+      fill: var(--color-menu);
+      stroke: var(--color-menu-hover);
+    }
+
+    &.Home {
+      background-color: var(--color-menu);
+      background-opacity: 0.4;
+
+      svg {
+        fill: var(--color-menu);
+        stroke: var(--color-menu-hover);
+      }
+    }
+
+    &.EncryptText {
+      background-color: var(--color-yellow);
+      background-opacity: 0.4;
+
+      svg {
+        fill: var(--color-yellow);
+        stroke: var(--color-menu);
+      }
+    }
+
+    &.DecryptText {
+      background-color: var(--color-green);
+      background-opacity: 0.4;
+
+      svg {
+        fill: var(--color-green);
+        stroke: var(--color-menu);
+      }
+    }
+
+    &.ManagePassword {
+      background-color: var(--color-red);
+      background-opacity: 0.4;
+    }
+
+    &.Settings {
+      background-color: var(--color-blue);
+      background-opacity: 0.4;
+
+      svg {
+        fill: var(--color-blue);
+        stroke: var(--color-menu);
+      }
+    }
+
+    &.About {
+      background-color: var(--color-purple);
+      background-opacity: 0.4;
+
+      svg {
+        fill: var(--color-purple);
+        stroke: var(--color-menu);
+      }
+    }
+  }
+
+  .yellow {
+    color: var(--color-yellow);
+
+    h1 {
+      color: var(--color);
+      text-shadow: -1px -1px 0 var(--color-yellow),
+        1px -1px 0 var(--color-yellow), -1px 1px 0 var(--color-yellow),
+        1px 1px 0 var(--color-yellow);
+    }
+
+    svg {
+      fill: var(--color-yellow);
+      stroke: var(--color-menu);
+    }
+  }
+
+  .green {
+    color: var(--color-green);
+
+    h1 {
+      color: var(--color);
+      text-shadow: -1px -1px 0 var(--color-green), 1px -1px 0 var(--color-green),
+        -1px 1px 0 var(--color-green), 1px 1px 0 var(--color-green);
+    }
+
+    svg {
+      fill: var(--color-green);
+      stroke: var(--color-menu);
+    }
+  }
+
+  .orange {
+    color: var(--color-orange);
+    svg {
+      fill: var(--color-orange);
+      stroke: var(--color-menu);
+    }
+  }
+
+  .gray {
+    color: var(--color-gray);
+
+    h1 {
+      color: var(--color);
+      text-shadow: -1px -1px 0 var(--color-gray), 1px -1px 0 var(--color-gray),
+        -1px 1px 0 var(--color-gray), 1px 1px 0 var(--color-gray);
+    }
+
+    svg {
+      fill: var(--color-gray);
+      stroke: var(--color-menu);
+    }
+  }
+
+  .blue {
+    color: var(--color-blue);
+
+    h1 {
+      color: var(--color);
+      text-shadow: -1px -1px 0 var(--color-blue), 1px -1px 0 var(--color-blue),
+        -1px 1px 0 var(--color-blue), 1px 1px 0 var(--color-blue);
+    }
+
+    svg {
+      fill: var(--color-blue);
+      stroke: var(--color-menu);
+    }
+  }
+
+  .purple {
+    color: var(--color-purple);
+
+    h1 {
+      color: var(--color);
+      text-shadow: -1px -1px 0 var(--color-purple),
+        1px -1px 0 var(--color-purple), -1px 1px 0 var(--color-purple),
+        1px 1px 0 var(--color-purple);
+    }
+
+    svg {
+      fill: var(--color-purple);
+      stroke: var(--color-menu);
+    }
+  }
+
+  .red {
+    color: var(--color-red);
+
+    h1 {
+      color: var(--color);
+      text-shadow: -1px -1px 0 var(--color-red), 1px -1px 0 var(--color-red),
+        -1px 1px 0 var(--color-red), 1px 1px 0 var(--color-red);
+    }
+
+    svg {
+      fill: var(--color-red);
+      stroke: var(--color-menu);
+    }
+  }
+
+  .yellow:hover,
+  .green:hover,
+  .orange:hover,
+  .gray:hover,
+  .blue:hover,
+  .purple:hover,
+  .red:hover {
+    opacity: 0.4;
+    color: var(--color-menu);
+
+    h1 {
+      color: var(--color-menu);
+      text-shadow: -1px -1px 0 var(--color-menu), 1px -1px 0 var(--color-menu),
+        -1px 1px 0 var(--color-menu), 1px 1px 0 var(--color-menu);
+    }
+
+    svg {
+      fill: var(--color-menu);
+      stroke: transparent;
+    }
+
+    h3 {
+      color: var(--color-menu);
+    }
+  }
+
+  .yellow:hover {
+    background-color: var(--color-yellow);
+  }
+
+  .green:hover {
+    background-color: var(--color-green);
+  }
+
+  .orange:hover {
+    background-color: var(--color-orange);
+  }
+
+  .gray:hover {
+    background-color: var(--color-gray);
+  }
+
+  .blue:hover {
+    background-color: var(--color-blue);
+  }
+
+  .purple:hover {
+    background-color: var(--color-purple);
+  }
+
+  .red:hover {
+    background-color: var(--color-red);
+  }
+
+  .select-value {
+    @apply p-4 flex flex-row justify-start items-center gap-4 flex-wrap;
+    border: 0.25rem solid var(--color-menu);
+
+    select {
+      color: var(--color-menu);
+      border: 4px solid var(--color-menu);
+      border-radius: 0.25rem;
+
+      &:focus {
+        border-color: var(--color-menu-hover);
+        background-color: white;
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+        border-radius: 0.5rem;
+      }
+    }
+  }
+
+  .custom-button {
+    &:hover {
+      background-color: var(--color-menu-hover);
+      color: var(--color-menu);
+      border-color: var(--color-menu);
+      border-radius: 4px;
+
+      svg {
+        fill: var(--color-menu);
+        stroke: transparent;
+      }
+    }
+
+    svg {
+      transition: all 0.5s ease-in-out;
+      fill: var(--color-menu-hover);
+      stroke: var(--color-menu-hover);
+    }
+  }
+
+  .button-icon-yellow .custom-button {
+    &:hover {
+      background-color: var(--color-yellow);
+      svg {
+        fill: var(--color-menu);
+        stroke: transparent;
+      }
+    }
+
+    svg {
+      transition: all 0.5s ease-in-out;
+      fill: var(--color-yellow);
+      stroke: var(--color-yellow);
+    }
+  }
+
+  .button-icon-red .custom-button {
+    &:hover {
+      background-color: var(--color-red);
+      svg {
+        fill: var(--color-menu);
+        stroke: transparent;
+      }
+    }
+
+    svg {
+      transition: all 0.5s ease-in-out;
+      fill: var(--color-red);
+      stroke: var(--color-red);
+    }
+  }
+
+  .camera .scan-region-highlight {
+    z-index: 200;
+  }
+
+  .camera .scan-region-highlight-svg,
+  .camera .code-outline-highlight {
+    stroke: var(--color-red) !important;
+  }
+
+  .rendered {
+    width: 100%;
+    background-color: #ccc;
+    color: var(--color-menu);
+    padding: 0.25em;
+    cursor: default;
+    border-radius: 2px;
+
+    ol li,
+    ul li {
+      padding: 0.5rem;
+    }
+
+    ol {
+      list-style-type: decimal;
+      list-style-position: inside;
+    }
+
+    ul {
+      list-style-type: disc;
+      list-style-position: inside;
+    }
+
+    p {
+      margin: 0.75rem 0;
+      padding: 0;
+      width: 100%;
+    }
+
+    table {
+      border: 1px solid var(--color-menu);
+      border-radius: 4px;
+      border-spacing: 0;
+      display: inline-block;
+      max-width: 100%;
+      overflow-x: auto;
+      padding: 0;
+      white-space: nowrap;
+    }
+
+    table thead {
+      background-color: var(--color-menu);
+      border-color: var(--color-menu-hover);
+      color: var(--color);
+      margin: 0;
+      padding: 0;
+    }
+
+    table thead th:first-child {
+      border-top-left-radius: 4px;
+    }
+
+    table thead th:last-child {
+      border-top-right-radius: 4px;
+    }
+
+    table tr:nth-child(even) {
+      background-color: #118bee15;
+    }
+  }
+}
